@@ -1,0 +1,217 @@
+---
+title: "STA199 Final Project"
+subtitle: "Proposal"
+format: html
+editor: visual
+---
+
+```{r}
+#| label: load-pkgs
+#| message: false
+
+library(tidyverse)
+library(readxl)
+```
+
+# Data 1
+
+## Introduction and data
+
+-   **Identify the source of the data.**
+
+    The source of this dataset is NBA players' game day statistics from the Basketball Reference website.
+
+-   **State when and how it was originally collected (by the original data curator, not necessarily how you found the data).**
+
+    This data was collected from the 1997-98 season through 2021-22 season and compiled/organized by Eduardo Tocco, an information science and Tech student at the University of Arizona. Tocco was able to collect this public data as it had already been published by the NBA; more specifically, he scraped the data above from the site Basketball Reference which uses official NBA data.
+
+-   **Write a brief description of the observations.**
+
+    This dataset is made up of 14,753 entries (rows) and 31 total columns. Each NBA player represents an observation; for each player there is information on their position, age, their team, games played, games started, minutes played, field goals, field goals attempted, 2 point field goals, 3 point field goals, etc. (we have included just the first 10 variables here for now because there are so many).
+
+-   **Ethical Concerns.**
+
+    Though seemingly minor, when collecting/compiling/re-publishing data, it is essential that those collecting (in this case Eduardo Tocco) act ethically responsible by granting proper credit to the original source of the data (NBA). Moreover, although the original data was public, players and others relevant to the data should be kept informed when re-collecting and re-analyzing the statistics in different contexts; those compiling already public information should also still take into consideration the mental impact on players when stats from old games are being re-publicized and re-analyzed in new and different ways. In this case, it is especially true because the information relates to mistakes made in games and other emotion-provoking information that may impact player morality, well-being, and public relations.
+
+## Research question
+
+-   **A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)**
+
+    How have the qualities the NBA values in MVPs changed over the last 25 years?
+
+-   **Why are these questions important?**
+
+    This question important because the NBA MVP award is the highest honor for an NBA player. Many players have worked for most of their lives to be presented with this award, and people of all ages admire those who earn the MVP award. It is important to have an idea of why each MVP is selected and how he is different from those who precede and succeed him, so we can ensure the selection process has not become more arbitrary or reliant on factors outside of on-court performance over time.
+
+-   **A description of the research topic along with a concise statement of your hypotheses on this topic.**
+
+    A panel of members of the sports media chosen by the NBA vote to decide the regular season NBA MVP. Although the panelists are knowledgeable about basketball, the MVP selection process is subjective. Our project aims to determine how the values of NBA MVP selection panelists have evolved. We will compare MVPs from different years and compare MVPs to other players in the same season to find in which categories the MVP excelled or struggled.
+
+    We hypothesize that the number of three-pointers per game has become more valuable over time and defense has become less valuable over time in terms of determining MVP status.
+
+-   **Identify the types of variables in your research question. Categorical? Quantitative?**
+
+    -   Categorical: position, team, season, MVP
+
+    -   Quantitative: points per game, personal fouls per game, turnovers per game, blocks per game, steals per game, assists per games, total rebounds per game, defensive rebounds per game, offensive rebounds per game, free throw percentage, free throw attempts per game, free throws per game, 2-point field goal percentage, 2-point field goal attempts per game, 2-point field goals per game, 3-point field goal percentage, 3-point field goal attempts per game, 3-point field goals per game, minutes played per game, games started, games, age
+
+## Literature
+
+-   **Find one published credible article on the topic you are interested in researching.**
+
+    Datta, V. (2018, August 18). Evolution of the NBA. https://sportsanalytics.berkeley.edu/articles/nba-evolution.html
+
+-   **Provide a one paragraph summary about the article.**
+
+    This article discusses the evolution of NBA individual players, teams, and rules from 1976 to 2018. The author explains that offense has become less structured to more fast-paced. In the past, offenses heavily depended on big men to score, but more recently offenses heavily rely on three-pointers, which forces the defense to spread out. As a result, big men have to be more agile to guard smaller guards. Also, the NBA prohibited hand checking which allows smaller players to be more competitive.
+
+-   **In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.**
+
+    While our research question focuses on seasons from 1997 to 2022, this article focuses on seasons from 1976 to 2018. This allows us to access more recent information and hopefully identify emerging trends. Also, this article is more broad than our research question; we want to focus more on the evolution of MVPs rather than changes to the overall game.
+
+## Glimpse of data
+
+```{r}
+#| label: load-data-1
+
+Player_Stats_2 <- read.csv("https://query.data.world/s/3zkhi355y6xx3x47gb5wra6nyiw34s?dws=00000", header=TRUE, stringsAsFactors=FALSE);
+
+glimpse(Player_Stats_2)
+```
+
+# Data 2
+
+## Introduction and data
+
+-   **Identify the source of the data.**
+
+    This data set is from the TidyTuesday database, but the original source of the data is the Equity in Athletics Data Analysis.
+
+-   **State when and how it was originally collected (by the original data curator, not necessarily how you found the data).**
+
+    According to the "EADA Data Analysis Cutting Tool User Guide," institutions provide data to the department via the online Equity in Athletics Disclosure Act (EADA) data collection system. The data is made available to the public through the Office of Post-secondary Education of the U.S. Department of Education. Since the data set contains information from the years 2015-2019, the data was collected in those 5 years.
+
+-   **Write a brief description of the observations.**
+
+    Each observation is a university for a given year and sport. Each observation also has information about the location of the school, sports conference, number of male and female athletes, revenue for a given men's and women's team, and expenditures for those teams.
+
+-   **Ethical Concerns**
+
+    At first consideration, there are not many ethical concerns regarding the collection and use of this data; there is no personally identifiable information (used information is about a university and sports team at the aggregate level), and the U.S. Department of Education has made this data publicly available for the public to use and access. However, a potential concern in the collection of this data is that universities self-report the data. This could be a potential source of bias and misinformation. Taking a glance at the dataset reveals there are a considerable number of NA values for the revenue of a male or female team while the data for the other gender is provided. It is unclear whether this lack of data is entirely because a university does not have a team for that gender or whether the data was simply not reported. If the latter is true, this could be potential source of non-response bias in the collection of this data.
+
+## Research question
+
+-   **A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)**
+
+    Does the ratio of expenditure to revenue for basketball teams at universities across the United States differ based on whether the team is a women's or a men's team in the years from 2015 to 2019? What factors (Division, school classification, student body size, state, etc.) influence the disparity in this ratio across men's and women's teams?
+
+-   **Statement on why this question is important**
+
+    For many years, there have been disparities in spending across men's and women's collegiate sports teams. To ensure gender equality, it is important to analyze patterns of expenditure and revenue across programs to identify whether there is a disparity in treatment and investment across teams.
+
+-   **A description of the research topic along with a concise statement of your hypotheses on this topic.**
+
+    Our research topic will explore the relationship between revenue and expenditure across men's and women's basketball teams across universities in the United States from 2015 to 2019. We hypothesize that men's basketball teams have higher expenditure-to- revenue ratios than women's basketball teams. Particularly, we expect this disparity to wider at higher levels of competition (Division 1 universities) compared to Divisions 2 and 3 institutions.
+
+-   **Identify the types of variables in your research question. Categorical? Quantitative?**
+
+    -   Quantitative: year, total students, men's revenue, women's revenue, men's expenditure, women's expenditure
+
+    -   Categorical: classification name, sector name, sport
+
+## Literature
+
+-   **Find one published credible article on the topic you are interested in researching.**
+
+    Kaplan Hecker & Fink LLP. (2021, October 26). *NCAA External Gender Equity Review, Phase II*. NCAA Gender Review. https://ncaagenderequityreview.com/
+
+-   **Provide a one paragraph summary about the article.**
+
+    The "NCAA External Gender Equity Review Phase II" was published on October 25, 2021 as a further investigation (also implements addenda and new findings) after the August 2021 Review (Phase I). Kaplan Heckler & Fink LLP are a law firm that was hired by the NCAA to investigate gender equity in collegiate sports in early 2021, and completed their Phase II investigation over the course of three months. In this specific report, Heckler & Fink expose that the NCAA has invested more expenditure into championships they deem as more "revenue-producing," all of which have been men's sports; in turn, a cycle of inequity between men and women's sports has been created and perpetuated within the NCAA. The report takes a broader view in the specifics of championships to decipher the effect of policy and practice in contribution to this inequity through investigating patterns. Findings have indicated a range of NCAA conflicts in regards to gender inequity; some include that the NCAA has a culture that promotes revenue-producing for gender inequity, media promotes unequal investment for both genders in sports, the NCAA lacks necessary compositions to implement and sustain gender equality, and independent staff operation for both sports furthers inequity. The report delves into these conflicts and provides recommendations for alleviation, and also presents some captivating information on spending. In specific relation to championships, the report reflects that spending has been influenced by revenue; in baseball/softball, ice hockey, lacrosse, gymnastics, soccer, and volleyball, the NCAA has made a significantly greater investment in sport championships for men than women (page 21).
+
+-   **In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.**
+
+    Our research question builds on the cited article by conducting a statistical analysis on data to investigate inequity between men and women's collegiate sports; however, we are taking a more specific lens within the issue by specifically studying revenue and expenditure (the report took a broader lens in considering many contributing factors largely relating to culture). Interestingly, data from Kaplan & Heckler's findings also support a particular sector of our hypothesis: that disparity is more prevalent in Division I than Division II and III Sports; we look forward to exploring how expenditure and revenue play into this.
+
+## Glimpse of data
+
+```{r}
+#| label: load-collegiate-sports-budget
+
+sports <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-29/sports.csv')
+
+glimpse(sports)
+
+```
+
+# Data 3
+
+## Introduction and data
+
+-   **Identify the source of the data.**
+
+    There are two datasets including North Carolina School Performance and Durham Neighborhood Permit Values. The source of these two datasets is the Durham Open Data Portal, whose mission is to make all government-held data available to the public. Open data is information that is available to and can be freely used by all.
+
+-   **State when and how it was originally collected (by the original data curator, not necessarily how you found the data).**
+
+    The data for Durham Neighborhood Permit Values (2012) was collected by the Durham City/County Inspections Department, who provides permit, plan review, and inspection services for the city and county of Durham. These services ensure the health, safety, and welfare of the public through administration and enforcement of North Carolina State Building Code and zoning ordinances for both the city and county. 
+
+    The data for NC School Performance (2016-2017) was collected by the North Carolina Department of Public Instruction (NC DPI), which oversees the public school system in North Carolina. All states has an overarching department/organization to monitor public schools within their state (DPI is North Carolina specific); therein, the NC DPI uses specialized data systems to manage and analyze student data for internal information gathering and subsequent external planning.
+
+-   **Write a brief description of the observations.**
+
+    This Durham Neighborhood Permit Values data set includes 155 rows and 24 columns. Each row represents a Durham neighborhood and each column represents a variable. For example, one variable is value per square mile.
+
+    The data for NC School Performance includes 85,767 rows and 32 columns. Each row represents a specific district, school, grade, and subject, and each column represents a variable. Some variables include district name, school code, school name, subject, standard (proficiency), race, EDS (economically disadvantaged), LEP (limited english proficient), SWD (students with disabilities), and AIG (academically and intellectually gifted).
+
+-   **Ethical Concerns**
+
+    Researching the relationship between wealth and academic performance may highlight disparities in education outcomes. It's important to address any ethical concerns associated with these disparities and to consider the potential consequences of highlighting these inequalities. Stigmatizing students based on their socioeconomic status can be harmful; researchers and analyzers must be careful not to perpetuate stereotypes of economically disadvantaged students both in thought and research productions. Therein, it is important to be aware of biases and work to conduct research objectively. Lastly, ethical concerns regarding the data should be considered closely to avoid revealing the identities of individuals and communities, given that individual observations include information that could be potentially revealing (school name, race, specifics of economic standing/english proficiency/disability status and more).
+
+## Research question
+
+-   **A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)**
+
+    How does the economic affluence of a neighborhood correlate to the academic performance of K-12 students attending schools within that neighborhood? More specifically, how does this relationship vary across different demographic groups?
+
+-   **Statement on why this question is important**
+
+    This question addresses educational equity and can provide insight on improving the educational outcomes among K-12 students, particularly students attending schools in economically disadvantaged neighborhoods. Identifying disparities in access to quality education can inform educational policy and resource allocation leading to targeted interventions in North Carolina. Additionally, the research question considers that that correlation can vary across demographic groups, which can inform policymaker strategies in reaching and offering support to specific populations. The findings from this study can also be applicable on a wider level; by investigating educational equity on a state-wide level, findings can inform other states on how to decipher areas in which educational outcomes for K-12 students must be improved, and provide a basis of comparison for educational outcomes across states.
+
+-   **A description of the research topic along with a concise statement of your hypotheses on this topic**
+
+    Our research topic will explore the relationship between the economic affluence of a neighborhood and the academic performance of K-12 students attending schools within that neighborhood. We hypothesize that schools in wealthier neighborhoods will have higher performance. We expect disparities to vary across demographic group (gender, race, EDS, LEP, SWD, and AIG).
+
+-   **Identify the types of variables in your research question. Categorical? Quantitative?**
+
+    -   Categorical: Neighborhood Name, District Name, School Name, Subject, Standard Proficiency
+
+    -   Quantitative: Resale Value, Neighborhood Area, Percentage all Students, Percentage Female, Percentage Male, Percentage Black, Percentage White, Percentage Hispanic, Percentage EDS, Percentage LEP, Percentage AIG
+
+## Literature
+
+-   **Find one published credible article on the topic you are interested in researching.**
+
+    Oaks, J., Cookson, P. W., Levin, S., Carver-Thomas, D., Frelow, F., Berry, B., Yang, M., George, J., Brooks, J., & Guin, S. (2019, December). *Providing an Equal Opportunity for a Sound Basic Education in North Carolina's High‐Poverty Schools: Assessing Needs and Opportunities*. Learning Policy Institute. https://learningpolicyinstitute.org/media/496/download?inline&file=Leandro_High_Poverty_REPORT.pdf
+
+-   **Provide a one paragraph summary about the article.**
+
+    Written as a collaborative effort of authors/contributors in December 2019, The Learning Policy Institute composed a report of high-poverty schools and needs for equitable educational opportunity. Titled "Providing an Equal Opportunity for a Sound Basic Education in North Carolina's High‐Poverty Schools: Assessing Needs and Opportunities," the report details six areas of findings in regards to High-Poverty North Carolina Schools, including large numbers of schools and students, less access to adequate education, less access to accountability (Leandro tenets), lack of outside risk-addressing, and systemic barriers. One specific section of the report specifically details that high-poverty schools are disproportionately schools of color (who are also mostly from poor economic circumstances); further Hispanic, Black, and American Indian children represent the majority of children in low income families in North Carolina (page 21). Presented statistics also corroborate that high-poverty schools are also often attended by students with other risk factors, namely ELL (english language learners) and SWD (page 24). Finally, in looking at high school outcomes by economic status, the report reflects that while high school graduation rates between economically disadvantaged students and their advantaged counterparts, test score performance is disparate. The report details the other aforementioned sections before concluding with recommendations for the NC DPI.
+
+-   **In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.**
+
+    Out research question directly relates to the issues identified and discussed by the article. However, while the article incorporates the use of outside statistics to build their argument, we will be conducting an actual analysis to draw our own conclusions, and our data will come specifically from Durham, North Carolina schools; we look forward to seeing alignment and differences as well!
+
+## Glimpse of data
+
+```{r}
+#| label: load-data-3
+
+NC_performance <- read_excel('data/NC_School_Performance_2016-2017.xlsx')
+
+glimpse(NC_performance)
+
+neighborhood <- readr::read_csv('data/Neighborhood_Building_Permit_Value_(2012).csv')
+
+glimpse(neighborhood)
+```

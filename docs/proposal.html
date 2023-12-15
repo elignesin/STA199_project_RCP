@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STA199 Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">RCP</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./proposal.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./presentation.pdf" rel="" target="">
+ <span class="menu-text">Presentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./report.html" rel="" target="">
+ <span class="menu-text">Report</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-1" id="toc-data-1" class="nav-link active" data-scroll-target="#data-1">Data 1</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-data" id="toc-introduction-and-data" class="nav-link" data-scroll-target="#introduction-and-data">Introduction and data</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research question</a></li>
+  <li><a href="#literature" id="toc-literature" class="nav-link" data-scroll-target="#literature">Literature</a></li>
+  <li><a href="#glimpse-of-data" id="toc-glimpse-of-data" class="nav-link" data-scroll-target="#glimpse-of-data">Glimpse of data</a></li>
+  </ul></li>
+  <li><a href="#data-2" id="toc-data-2" class="nav-link" data-scroll-target="#data-2">Data 2</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-data-1" id="toc-introduction-and-data-1" class="nav-link" data-scroll-target="#introduction-and-data-1">Introduction and data</a></li>
+  <li><a href="#research-question-1" id="toc-research-question-1" class="nav-link" data-scroll-target="#research-question-1">Research question</a></li>
+  <li><a href="#literature-1" id="toc-literature-1" class="nav-link" data-scroll-target="#literature-1">Literature</a></li>
+  <li><a href="#glimpse-of-data-1" id="toc-glimpse-of-data-1" class="nav-link" data-scroll-target="#glimpse-of-data-1">Glimpse of data</a></li>
+  </ul></li>
+  <li><a href="#data-3" id="toc-data-3" class="nav-link" data-scroll-target="#data-3">Data 3</a>
+  <ul class="collapse">
+  <li><a href="#introduction-and-data-2" id="toc-introduction-and-data-2" class="nav-link" data-scroll-target="#introduction-and-data-2">Introduction and data</a></li>
+  <li><a href="#research-question-2" id="toc-research-question-2" class="nav-link" data-scroll-target="#research-question-2">Research question</a></li>
+  <li><a href="#literature-2" id="toc-literature-2" class="nav-link" data-scroll-target="#literature-2">Literature</a></li>
+  <li><a href="#glimpse-of-data-2" id="toc-glimpse-of-data-2" class="nav-link" data-scroll-target="#glimpse-of-data-2">Glimpse of data</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">STA199 Final Project</h1>
+<p class="subtitle lead">Proposal</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="data-1" class="level1">
+<h1>Data 1</h1>
+<section id="introduction-and-data" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-data">Introduction and data</h2>
+<ul>
+<li><p><strong>Identify the source of the data.</strong></p>
+<p>The source of this dataset is NBA players’ game day statistics from the Basketball Reference website.</p></li>
+<li><p><strong>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</strong></p>
+<p>This data was collected from the 1997-98 season through 2021-22 season and compiled/organized by Eduardo Tocco, an information science and Tech student at the University of Arizona. Tocco was able to collect this public data as it had already been published by the NBA; more specifically, he scraped the data above from the site Basketball Reference which uses official NBA data.</p></li>
+<li><p><strong>Write a brief description of the observations.</strong></p>
+<p>This dataset is made up of 14,753 entries (rows) and 31 total columns. Each NBA player represents an observation; for each player there is information on their position, age, their team, games played, games started, minutes played, field goals, field goals attempted, 2 point field goals, 3 point field goals, etc. (we have included just the first 10 variables here for now because there are so many).</p></li>
+<li><p><strong>Ethical Concerns.</strong></p>
+<p>Though seemingly minor, when collecting/compiling/re-publishing data, it is essential that those collecting (in this case Eduardo Tocco) act ethically responsible by granting proper credit to the original source of the data (NBA). Moreover, although the original data was public, players and others relevant to the data should be kept informed when re-collecting and re-analyzing the statistics in different contexts; those compiling already public information should also still take into consideration the mental impact on players when stats from old games are being re-publicized and re-analyzed in new and different ways. In this case, it is especially true because the information relates to mistakes made in games and other emotion-provoking information that may impact player morality, well-being, and public relations.</p></li>
+</ul>
+</section>
+<section id="research-question" class="level2">
+<h2 class="anchored" data-anchor-id="research-question">Research question</h2>
+<ul>
+<li><p><strong>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</strong></p>
+<p>How have the qualities the NBA values in MVPs changed over the last 25 years?</p></li>
+<li><p><strong>Why are these questions important?</strong></p>
+<p>This question important because the NBA MVP award is the highest honor for an NBA player. Many players have worked for most of their lives to be presented with this award, and people of all ages admire those who earn the MVP award. It is important to have an idea of why each MVP is selected and how he is different from those who precede and succeed him, so we can ensure the selection process has not become more arbitrary or reliant on factors outside of on-court performance over time.</p></li>
+<li><p><strong>A description of the research topic along with a concise statement of your hypotheses on this topic.</strong></p>
+<p>A panel of members of the sports media chosen by the NBA vote to decide the regular season NBA MVP. Although the panelists are knowledgeable about basketball, the MVP selection process is subjective. Our project aims to determine how the values of NBA MVP selection panelists have evolved. We will compare MVPs from different years and compare MVPs to other players in the same season to find in which categories the MVP excelled or struggled.</p>
+<p>We hypothesize that the number of three-pointers per game has become more valuable over time and defense has become less valuable over time in terms of determining MVP status.</p></li>
+<li><p><strong>Identify the types of variables in your research question. Categorical? Quantitative?</strong></p>
+<ul>
+<li><p>Categorical: position, team, season, MVP</p></li>
+<li><p>Quantitative: points per game, personal fouls per game, turnovers per game, blocks per game, steals per game, assists per games, total rebounds per game, defensive rebounds per game, offensive rebounds per game, free throw percentage, free throw attempts per game, free throws per game, 2-point field goal percentage, 2-point field goal attempts per game, 2-point field goals per game, 3-point field goal percentage, 3-point field goal attempts per game, 3-point field goals per game, minutes played per game, games started, games, age</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="literature" class="level2">
+<h2 class="anchored" data-anchor-id="literature">Literature</h2>
+<ul>
+<li><p><strong>Find one published credible article on the topic you are interested in researching.</strong></p>
+<p>Datta, V. (2018, August 18). Evolution of the NBA. https://sportsanalytics.berkeley.edu/articles/nba-evolution.html</p></li>
+<li><p><strong>Provide a one paragraph summary about the article.</strong></p>
+<p>This article discusses the evolution of NBA individual players, teams, and rules from 1976 to 2018. The author explains that offense has become less structured to more fast-paced. In the past, offenses heavily depended on big men to score, but more recently offenses heavily rely on three-pointers, which forces the defense to spread out. As a result, big men have to be more agile to guard smaller guards. Also, the NBA prohibited hand checking which allows smaller players to be more competitive.</p></li>
+<li><p><strong>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</strong></p>
+<p>While our research question focuses on seasons from 1997 to 2022, this article focuses on seasons from 1976 to 2018. This allows us to access more recent information and hopefully identify emerging trends. Also, this article is more broad than our research question; we want to focus more on the evolution of MVPs rather than changes to the overall game.</p></li>
+</ul>
+</section>
+<section id="glimpse-of-data" class="level2">
+<h2 class="anchored" data-anchor-id="glimpse-of-data">Glimpse of data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Player_Stats_2 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://query.data.world/s/3zkhi355y6xx3x47gb5wra6nyiw34s?dws=00000"</span>, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">stringsAsFactors=</span><span class="cn">FALSE</span>);</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(Player_Stats_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 14,573
+Columns: 32
+$ Rk     &lt;int&gt; 1, 2, 3, 4, 4, 4, 5, 6, 7, 8, 8, 8, 9, 10, 11, 12, 13, 13, 13, …
+$ Player &lt;chr&gt; "Mahmoud Abdul-Rauf", "Tariq Abdul-Wahad", "Shareef Abdur-Rahim…
+$ Pos    &lt;chr&gt; "PG", "SG", "SF", "PG", "PG", "PG", "SG", "SF", "C", "PG", "PG"…
+$ Age    &lt;int&gt; 28, 23, 21, 24, 24, 24, 22, 23, 33, 27, 27, 27, 30, 24, 23, 30,…
+$ Tm     &lt;chr&gt; "SAC", "SAC", "VAN", "TOT", "SAS", "DEN", "MIL", "CLE", "ATL", …
+$ G      &lt;int&gt; 31, 59, 82, 60, 37, 23, 82, 66, 50, 61, 45, 16, 58, 82, 41, 80,…
+$ GS     &lt;int&gt; 0, 16, 82, 22, 3, 19, 82, 13, 0, 56, 40, 16, 44, 2, 8, 0, 0, 0,…
+$ MP     &lt;dbl&gt; 17.1, 16.3, 36.0, 21.6, 13.5, 34.7, 40.1, 27.9, 8.0, 30.5, 32.7…
+$ FG     &lt;dbl&gt; 3.3, 2.4, 8.0, 2.9, 1.6, 4.8, 6.9, 3.6, 0.7, 4.4, 4.5, 4.0, 5.9…
+$ FGA    &lt;dbl&gt; 8.8, 6.1, 16.4, 6.7, 3.9, 11.1, 16.0, 8.9, 1.6, 11.0, 11.7, 9.2…
+$ FG.    &lt;dbl&gt; 0.377, 0.403, 0.485, 0.428, 0.414, 0.435, 0.428, 0.408, 0.444, …
+$ X3P    &lt;dbl&gt; 0.2, 0.1, 0.3, 1.1, 0.5, 2.0, 1.6, 0.3, 0.0, 0.9, 1.0, 0.6, 1.3…
+$ X3PA   &lt;dbl&gt; 1.0, 0.3, 0.6, 2.9, 1.7, 4.9, 4.5, 1.3, 0.1, 2.6, 3.0, 1.7, 3.7…
+$ X3P.   &lt;dbl&gt; 0.161, 0.211, 0.412, 0.375, 0.313, 0.411, 0.364, 0.202, 0.000, …
+$ X2P    &lt;dbl&gt; 3.2, 2.4, 7.7, 1.8, 1.1, 2.8, 5.2, 3.4, 0.7, 3.5, 3.5, 3.4, 4.6…
+$ X2PA   &lt;dbl&gt; 7.8, 5.7, 15.8, 3.7, 2.2, 6.2, 11.5, 7.6, 1.5, 8.4, 8.8, 7.5, 9…
+$ X2P.   &lt;dbl&gt; 0.405, 0.414, 0.488, 0.469, 0.494, 0.455, 0.453, 0.442, 0.474, …
+$ eFG.   &lt;dbl&gt; 0.386, 0.409, 0.493, 0.510, 0.483, 0.525, 0.479, 0.422, 0.444, …
+$ FT     &lt;dbl&gt; 0.5, 1.4, 6.1, 1.3, 0.7, 2.4, 4.2, 4.2, 0.3, 2.5, 2.5, 2.6, 2.2…
+$ FTA    &lt;dbl&gt; 0.5, 2.1, 7.8, 1.7, 1.0, 2.8, 4.8, 4.8, 0.8, 3.2, 3.2, 3.1, 3.4…
+$ FT.    &lt;dbl&gt; 1.000, 0.672, 0.784, 0.784, 0.676, 0.846, 0.875, 0.873, 0.390, …
+$ ORB    &lt;dbl&gt; 0.2, 0.7, 2.8, 0.3, 0.2, 0.4, 1.5, 0.8, 0.8, 0.6, 0.8, 0.2, 1.7…
+$ DRB    &lt;dbl&gt; 1.0, 1.2, 4.3, 2.2, 1.1, 3.9, 3.4, 2.0, 1.6, 2.2, 2.2, 2.3, 3.4…
+$ TRB    &lt;dbl&gt; 1.2, 2.0, 7.1, 2.4, 1.3, 4.3, 4.9, 2.8, 2.4, 2.8, 3.0, 2.4, 5.1…
+$ AST    &lt;dbl&gt; 1.9, 0.9, 2.6, 3.5, 1.9, 6.0, 4.3, 3.4, 0.3, 5.7, 5.4, 6.3, 2.1…
+$ STL    &lt;dbl&gt; 0.5, 0.6, 1.1, 1.2, 0.7, 2.0, 1.4, 1.3, 0.4, 1.4, 1.4, 1.6, 1.2…
+$ BLK    &lt;dbl&gt; 0.0, 0.2, 0.9, 0.2, 0.1, 0.3, 0.1, 0.2, 0.2, 0.0, 0.0, 0.0, 0.4…
+$ TOV    &lt;dbl&gt; 0.6, 1.1, 3.1, 1.9, 1.3, 2.8, 3.2, 1.9, 0.3, 2.3, 2.5, 1.8, 1.5…
+$ PF     &lt;dbl&gt; 1.0, 1.4, 2.5, 1.6, 1.4, 2.0, 3.0, 2.1, 1.7, 2.2, 2.2, 2.3, 1.7…
+$ PTS    &lt;dbl&gt; 7.3, 6.4, 22.3, 8.1, 4.5, 14.0, 19.5, 11.7, 1.8, 12.2, 12.6, 11…
+$ Season &lt;chr&gt; "1997-98", "1997-98", "1997-98", "1997-98", "1997-98", "1997-98…
+$ MVP    &lt;chr&gt; "False", "False", "False", "False", "False", "False", "False", …</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-2" class="level1">
+<h1>Data 2</h1>
+<section id="introduction-and-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-data-1">Introduction and data</h2>
+<ul>
+<li><p><strong>Identify the source of the data.</strong></p>
+<p>This data set is from the TidyTuesday database, but the original source of the data is the Equity in Athletics Data Analysis.</p></li>
+<li><p><strong>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</strong></p>
+<p>According to the “EADA Data Analysis Cutting Tool User Guide,” institutions provide data to the department via the online Equity in Athletics Disclosure Act (EADA) data collection system. The data is made available to the public through the Office of Post-secondary Education of the U.S. Department of Education. Since the data set contains information from the years 2015-2019, the data was collected in those 5 years.</p></li>
+<li><p><strong>Write a brief description of the observations.</strong></p>
+<p>Each observation is a university for a given year and sport. Each observation also has information about the location of the school, sports conference, number of male and female athletes, revenue for a given men’s and women’s team, and expenditures for those teams.</p></li>
+<li><p><strong>Ethical Concerns</strong></p>
+<p>At first consideration, there are not many ethical concerns regarding the collection and use of this data; there is no personally identifiable information (used information is about a university and sports team at the aggregate level), and the U.S. Department of Education has made this data publicly available for the public to use and access. However, a potential concern in the collection of this data is that universities self-report the data. This could be a potential source of bias and misinformation. Taking a glance at the dataset reveals there are a considerable number of NA values for the revenue of a male or female team while the data for the other gender is provided. It is unclear whether this lack of data is entirely because a university does not have a team for that gender or whether the data was simply not reported. If the latter is true, this could be potential source of non-response bias in the collection of this data.</p></li>
+</ul>
+</section>
+<section id="research-question-1" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-1">Research question</h2>
+<ul>
+<li><p><strong>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</strong></p>
+<p>Does the ratio of expenditure to revenue for basketball teams at universities across the United States differ based on whether the team is a women’s or a men’s team in the years from 2015 to 2019? What factors (Division, school classification, student body size, state, etc.) influence the disparity in this ratio across men’s and women’s teams?</p></li>
+<li><p><strong>Statement on why this question is important</strong></p>
+<p>For many years, there have been disparities in spending across men’s and women’s collegiate sports teams. To ensure gender equality, it is important to analyze patterns of expenditure and revenue across programs to identify whether there is a disparity in treatment and investment across teams.</p></li>
+<li><p><strong>A description of the research topic along with a concise statement of your hypotheses on this topic.</strong></p>
+<p>Our research topic will explore the relationship between revenue and expenditure across men’s and women’s basketball teams across universities in the United States from 2015 to 2019. We hypothesize that men’s basketball teams have higher expenditure-to- revenue ratios than women’s basketball teams. Particularly, we expect this disparity to wider at higher levels of competition (Division 1 universities) compared to Divisions 2 and 3 institutions.</p></li>
+<li><p><strong>Identify the types of variables in your research question. Categorical? Quantitative?</strong></p>
+<ul>
+<li><p>Quantitative: year, total students, men’s revenue, women’s revenue, men’s expenditure, women’s expenditure</p></li>
+<li><p>Categorical: classification name, sector name, sport</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="literature-1" class="level2">
+<h2 class="anchored" data-anchor-id="literature-1">Literature</h2>
+<ul>
+<li><p><strong>Find one published credible article on the topic you are interested in researching.</strong></p>
+<p>Kaplan Hecker &amp; Fink LLP. (2021, October 26). <em>NCAA External Gender Equity Review, Phase II</em>. NCAA Gender Review. https://ncaagenderequityreview.com/</p></li>
+<li><p><strong>Provide a one paragraph summary about the article.</strong></p>
+<p>The “NCAA External Gender Equity Review Phase II” was published on October 25, 2021 as a further investigation (also implements addenda and new findings) after the August 2021 Review (Phase I). Kaplan Heckler &amp; Fink LLP are a law firm that was hired by the NCAA to investigate gender equity in collegiate sports in early 2021, and completed their Phase II investigation over the course of three months. In this specific report, Heckler &amp; Fink expose that the NCAA has invested more expenditure into championships they deem as more “revenue-producing,” all of which have been men’s sports; in turn, a cycle of inequity between men and women’s sports has been created and perpetuated within the NCAA. The report takes a broader view in the specifics of championships to decipher the effect of policy and practice in contribution to this inequity through investigating patterns. Findings have indicated a range of NCAA conflicts in regards to gender inequity; some include that the NCAA has a culture that promotes revenue-producing for gender inequity, media promotes unequal investment for both genders in sports, the NCAA lacks necessary compositions to implement and sustain gender equality, and independent staff operation for both sports furthers inequity. The report delves into these conflicts and provides recommendations for alleviation, and also presents some captivating information on spending. In specific relation to championships, the report reflects that spending has been influenced by revenue; in baseball/softball, ice hockey, lacrosse, gymnastics, soccer, and volleyball, the NCAA has made a significantly greater investment in sport championships for men than women (page 21).</p></li>
+<li><p><strong>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</strong></p>
+<p>Our research question builds on the cited article by conducting a statistical analysis on data to investigate inequity between men and women’s collegiate sports; however, we are taking a more specific lens within the issue by specifically studying revenue and expenditure (the report took a broader lens in considering many contributing factors largely relating to culture). Interestingly, data from Kaplan &amp; Heckler’s findings also support a particular sector of our hypothesis: that disparity is more prevalent in Division I than Division II and III Sports; we look forward to exploring how expenditure and revenue play into this.</p></li>
+</ul>
+</section>
+<section id="glimpse-of-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="glimpse-of-data-1">Glimpse of data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sports <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-03-29/sports.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 132327 Columns: 28
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (8): institution_name, city_txt, state_cd, zip_text, classification_nam...
+dbl (20): year, unitid, classification_code, ef_male_count, ef_female_count,...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(sports)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 132,327
+Columns: 28
+$ year                 &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2…
+$ unitid               &lt;dbl&gt; 100654, 100654, 100654, 100654, 100654, 100654, 1…
+$ institution_name     &lt;chr&gt; "Alabama A &amp; M University", "Alabama A &amp; M Univer…
+$ city_txt             &lt;chr&gt; "Normal", "Normal", "Normal", "Normal", "Normal",…
+$ state_cd             &lt;chr&gt; "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "…
+$ zip_text             &lt;chr&gt; "35762", "35762", "35762", "35762", "35762", "357…
+$ classification_code  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1…
+$ classification_name  &lt;chr&gt; "NCAA Division I-FCS", "NCAA Division I-FCS", "NC…
+$ classification_other &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ ef_male_count        &lt;dbl&gt; 1923, 1923, 1923, 1923, 1923, 1923, 1923, 1923, 1…
+$ ef_female_count      &lt;dbl&gt; 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2300, 2…
+$ ef_total_count       &lt;dbl&gt; 4223, 4223, 4223, 4223, 4223, 4223, 4223, 4223, 4…
+$ sector_cd            &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+$ sector_name          &lt;chr&gt; "Public, 4-year or above", "Public, 4-year or abo…
+$ sportscode           &lt;dbl&gt; 1, 2, 3, 7, 8, 15, 16, 22, 26, 33, 1, 2, 3, 8, 12…
+$ partic_men           &lt;dbl&gt; 31, 19, 61, 99, 9, NA, NA, 7, NA, NA, 32, 13, NA,…
+$ partic_women         &lt;dbl&gt; NA, 16, 46, NA, NA, 21, 25, 10, 16, 9, NA, 20, 68…
+$ partic_coed_men      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ partic_coed_women    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ sum_partic_men       &lt;dbl&gt; 31, 19, 61, 99, 9, 0, 0, 7, 0, 0, 32, 13, 0, 10, …
+$ sum_partic_women     &lt;dbl&gt; 0, 16, 46, 0, 0, 21, 25, 10, 16, 9, 0, 20, 68, 7,…
+$ rev_men              &lt;dbl&gt; 345592, 1211095, 183333, 2808949, 78270, NA, NA, …
+$ rev_women            &lt;dbl&gt; NA, 748833, 315574, NA, NA, 410717, 298164, 13114…
+$ total_rev_menwomen   &lt;dbl&gt; 345592, 1959928, 498907, 2808949, 78270, 410717, …
+$ exp_men              &lt;dbl&gt; 397818, 817868, 246949, 3059353, 83913, NA, NA, 9…
+$ exp_women            &lt;dbl&gt; NA, 742460, 251184, NA, NA, 432648, 340259, 11388…
+$ total_exp_menwomen   &lt;dbl&gt; 397818, 1560328, 498133, 3059353, 83913, 432648, …
+$ sports               &lt;chr&gt; "Baseball", "Basketball", "All Track Combined", "…</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-3" class="level1">
+<h1>Data 3</h1>
+<section id="introduction-and-data-2" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-data-2">Introduction and data</h2>
+<ul>
+<li><p><strong>Identify the source of the data.</strong></p>
+<p>There are two datasets including North Carolina School Performance and Durham Neighborhood Permit Values. The source of these two datasets is the Durham Open Data Portal, whose mission is to make all government-held data available to the public. Open data is information that is available to and can be freely used by all.</p></li>
+<li><p><strong>State when and how it was originally collected (by the original data curator, not necessarily how you found the data).</strong></p>
+<p>The data for Durham Neighborhood Permit Values (2012) was collected by the Durham City/County Inspections Department, who provides permit, plan review, and inspection services for the city and county of Durham. These services ensure the health, safety, and welfare of the public through administration and enforcement of North Carolina State Building Code and zoning ordinances for both the city and county.&nbsp;</p>
+<p>The data for NC School Performance (2016-2017) was collected by the North Carolina Department of Public Instruction (NC DPI), which oversees the public school system in North Carolina. All states has an overarching department/organization to monitor public schools within their state (DPI is North Carolina specific); therein, the NC DPI uses specialized data systems to manage and analyze student data for internal information gathering and subsequent external planning.</p></li>
+<li><p><strong>Write a brief description of the observations.</strong></p>
+<p>This Durham Neighborhood Permit Values data set includes 155 rows and 24 columns. Each row represents a Durham neighborhood and each column represents a variable. For example, one variable is value per square mile.</p>
+<p>The data for NC School Performance includes 85,767 rows and 32 columns. Each row represents a specific district, school, grade, and subject, and each column represents a variable. Some variables include district name, school code, school name, subject, standard (proficiency), race, EDS (economically disadvantaged), LEP (limited english proficient), SWD (students with disabilities), and AIG (academically and intellectually gifted).</p></li>
+<li><p><strong>Ethical Concerns</strong></p>
+<p>Researching the relationship between wealth and academic performance may highlight disparities in education outcomes. It’s important to address any ethical concerns associated with these disparities and to consider the potential consequences of highlighting these inequalities. Stigmatizing students based on their socioeconomic status can be harmful; researchers and analyzers must be careful not to perpetuate stereotypes of economically disadvantaged students both in thought and research productions. Therein, it is important to be aware of biases and work to conduct research objectively. Lastly, ethical concerns regarding the data should be considered closely to avoid revealing the identities of individuals and communities, given that individual observations include information that could be potentially revealing (school name, race, specifics of economic standing/english proficiency/disability status and more).</p></li>
+</ul>
+</section>
+<section id="research-question-2" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-2">Research question</h2>
+<ul>
+<li><p><strong>A well formulated research question. (You may include more than one research question if you want to receive feedback on different ideas for your project. However, one per data set is required.)</strong></p>
+<p>How does the economic affluence of a neighborhood correlate to the academic performance of K-12 students attending schools within that neighborhood? More specifically, how does this relationship vary across different demographic groups?</p></li>
+<li><p><strong>Statement on why this question is important</strong></p>
+<p>This question addresses educational equity and can provide insight on improving the educational outcomes among K-12 students, particularly students attending schools in economically disadvantaged neighborhoods. Identifying disparities in access to quality education can inform educational policy and resource allocation leading to targeted interventions in North Carolina. Additionally, the research question considers that that correlation can vary across demographic groups, which can inform policymaker strategies in reaching and offering support to specific populations. The findings from this study can also be applicable on a wider level; by investigating educational equity on a state-wide level, findings can inform other states on how to decipher areas in which educational outcomes for K-12 students must be improved, and provide a basis of comparison for educational outcomes across states.</p></li>
+<li><p><strong>A description of the research topic along with a concise statement of your hypotheses on this topic</strong></p>
+<p>Our research topic will explore the relationship between the economic affluence of a neighborhood and the academic performance of K-12 students attending schools within that neighborhood. We hypothesize that schools in wealthier neighborhoods will have higher performance. We expect disparities to vary across demographic group (gender, race, EDS, LEP, SWD, and AIG).</p></li>
+<li><p><strong>Identify the types of variables in your research question. Categorical? Quantitative?</strong></p>
+<ul>
+<li><p>Categorical: Neighborhood Name, District Name, School Name, Subject, Standard Proficiency</p></li>
+<li><p>Quantitative: Resale Value, Neighborhood Area, Percentage all Students, Percentage Female, Percentage Male, Percentage Black, Percentage White, Percentage Hispanic, Percentage EDS, Percentage LEP, Percentage AIG</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="literature-2" class="level2">
+<h2 class="anchored" data-anchor-id="literature-2">Literature</h2>
+<ul>
+<li><p><strong>Find one published credible article on the topic you are interested in researching.</strong></p>
+<p>Oaks, J., Cookson, P. W., Levin, S., Carver-Thomas, D., Frelow, F., Berry, B., Yang, M., George, J., Brooks, J., &amp; Guin, S. (2019, December). <em>Providing an Equal Opportunity for a Sound Basic Education in North Carolina’s High‐Poverty Schools: Assessing Needs and Opportunities</em>. Learning Policy Institute. https://learningpolicyinstitute.org/media/496/download?inline&amp;file=Leandro_High_Poverty_REPORT.pdf</p></li>
+<li><p><strong>Provide a one paragraph summary about the article.</strong></p>
+<p>Written as a collaborative effort of authors/contributors in December 2019, The Learning Policy Institute composed a report of high-poverty schools and needs for equitable educational opportunity. Titled “Providing an Equal Opportunity for a Sound Basic Education in North Carolina’s High‐Poverty Schools: Assessing Needs and Opportunities,” the report details six areas of findings in regards to High-Poverty North Carolina Schools, including large numbers of schools and students, less access to adequate education, less access to accountability (Leandro tenets), lack of outside risk-addressing, and systemic barriers. One specific section of the report specifically details that high-poverty schools are disproportionately schools of color (who are also mostly from poor economic circumstances); further Hispanic, Black, and American Indian children represent the majority of children in low income families in North Carolina (page 21). Presented statistics also corroborate that high-poverty schools are also often attended by students with other risk factors, namely ELL (english language learners) and SWD (page 24). Finally, in looking at high school outcomes by economic status, the report reflects that while high school graduation rates between economically disadvantaged students and their advantaged counterparts, test score performance is disparate. The report details the other aforementioned sections before concluding with recommendations for the NC DPI.</p></li>
+<li><p><strong>In 1-2 sentences, explain how your research question builds on / is different than the article you have cited.</strong></p>
+<p>Out research question directly relates to the issues identified and discussed by the article. However, while the article incorporates the use of outside statistics to build their argument, we will be conducting an actual analysis to draw our own conclusions, and our data will come specifically from Durham, North Carolina schools; we look forward to seeing alignment and differences as well!</p></li>
+</ul>
+</section>
+<section id="glimpse-of-data-2" class="level2">
+<h2 class="anchored" data-anchor-id="glimpse-of-data-2">Glimpse of data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>NC_performance <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">'data/NC_School_Performance_2016-2017.xlsx'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(NC_performance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 85,766
+Columns: 32
+$ `District Name`                                       &lt;chr&gt; "State of North …
+$ `School Code`                                         &lt;chr&gt; "NC", "NC", "NC"…
+$ `School Name`                                         &lt;chr&gt; "State of North …
+$ `SBE District`                                        &lt;chr&gt; NA, NA, NA, NA, …
+$ Subject                                               &lt;chr&gt; "All EOG/EOC Sub…
+$ `Standard (CCR - Level 4 &amp; 5, GLP - Level 3 &amp; Above)` &lt;chr&gt; "College and Car…
+$ `Percentage of: All Students`                         &lt;chr&gt; "49.2", "50.9", …
+$ `Percentage of: Female`                               &lt;chr&gt; "51.0", "54.0", …
+$ `Percentage of:  Male`                                &lt;chr&gt; "47.6", "48.0", …
+$ `Percentage of: American Indian`                      &lt;chr&gt; "33.4", "33.6", …
+$ `Percentage of: Asian`                                &lt;chr&gt; "74.1", "76.4", …
+$ `Percentage of: Black`                                &lt;chr&gt; "29.7", "29.8", …
+$ `Percentage of: Hispanic`                             &lt;chr&gt; "37.6", "39.4", …
+$ `Percentage of: Two or More Races`                    &lt;chr&gt; "49.1", "50.0", …
+$ `Percentage of:  White`                               &lt;chr&gt; "62.0", "63.2", …
+$ `Percentage of: EDS`                                  &lt;chr&gt; "33.5", "33.2", …
+$ `Percentage of: LEP`                                  &lt;chr&gt; "14.2", "8.7", "…
+$ `Percentage of: SWD`                                  &lt;chr&gt; "15.9", "13.2", …
+$ `Percentage of: AIG`                                  &lt;chr&gt; "93.5", "92.1", …
+$ `Number of: All Students`                             &lt;chr&gt; "2026376", "3864…
+$ `Number of: Female`                                   &lt;chr&gt; "987878", "18943…
+$ `Number of:  Male`                                    &lt;chr&gt; "1038495", "1969…
+$ `Number of: American Indian`                          &lt;chr&gt; "24464", "4598",…
+$ `Number of: Asian`                                    &lt;chr&gt; "64465", "12696"…
+$ `Number of: Black`                                    &lt;chr&gt; "509545", "96146…
+$ `Number of: Hispanic`                                 &lt;chr&gt; "342674", "57561…
+$ `Number of: Two or More Races`                        &lt;chr&gt; "83947", "14718"…
+$ `Number of:  White`                                   &lt;chr&gt; "998804", "20028…
+$ `Number of: EDS`                                      &lt;chr&gt; "995408", "17010…
+$ `Number of: LEP`                                      &lt;chr&gt; "95138", "13621"…
+$ `Number of: SWD`                                      &lt;chr&gt; "255601", "42226…
+$ `Number of: AIG`                                      &lt;chr&gt; "305064", "76138…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>neighborhood <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'data/Neighborhood_Building_Permit_Value_(2012).csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 155 Columns: 25
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): Name, Snippet
+dbl (23): OBJECTID, SWTORD, COMVAL_SQM, RESVAL_SQM, V_PER_SQMI, P_PER_SQMI, ...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(neighborhood)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 155
+Columns: 25
+$ OBJECTID              &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
+$ Name                  &lt;chr&gt; "Abercromby", "Albright", "Amberlynn Valley", "A…
+$ Snippet               &lt;chr&gt; "http://durhamhoods.com/neighborhoods/abercromby…
+$ SWTORD                &lt;dbl&gt; 2.9, 43.8, 119.9, 24.1, 34.4, 0.0, 77.1, 61.5, 2…
+$ COMVAL_SQM            &lt;dbl&gt; 0, 3447325, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ RESVAL_SQM            &lt;dbl&gt; 376052, 107499, 0, 4256857, 200464, 239052, 3999…
+$ V_PER_SQMI            &lt;dbl&gt; 0, 322, 76, 2, 29, 0, 0, 0, 36, 0, 9, 0, 58, 0, …
+$ P_PER_SQMI            &lt;dbl&gt; 233, 613, 789, 51, 66, 8, 32, 80, 182, 28, 29, 1…
+$ D_PER_SQMI            &lt;dbl&gt; 0, 341, 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120…
+$ R_AVGYR               &lt;dbl&gt; 1993, 1944, 2006, 1991, 1957, 1989, 2003, 2002, …
+$ LUDIVERS              &lt;dbl&gt; 0.0, 29.9, 3.0, 0.8, 15.5, 0.0, 0.0, 0.0, 0.0, 0…
+$ WE_CT                 &lt;dbl&gt; 4, 50, 0, 3, 13, 0, 0, 2, 1, 0, 0, 3, 4, 4, 0, 0…
+$ RCODEV                &lt;dbl&gt; 0, 166, 0, 2, 11, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, …
+$ AUTOV                 &lt;dbl&gt; 5, 3, 0, 1, 13, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,…
+$ PCTR_GRCR             &lt;dbl&gt; 0.0, 43.2, 0.0, 0.0, 40.6, 0.0, 0.0, 0.0, 0.0, 0…
+$ PCTR_PHARM            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ PCTR_BANK             &lt;dbl&gt; 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0…
+$ PCTR_BUSST            &lt;dbl&gt; 5.5, 98.3, 88.9, 37.9, 59.3, 0.0, 0.0, 0.0, 0.0,…
+$ DAYTRIPS              &lt;dbl&gt; 0, 108, 0, 27, 127, 0, 0, 0, 0, 0, 26, 22, 0, 0,…
+$ EVETRIPS              &lt;dbl&gt; 0, 11, 0, 11, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ id                    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
+$ Neighborhoods__LENGTH &lt;dbl&gt; 0.012323139, 0.037148006, 0.014686074, 0.0619722…
+$ Neighborhoods__AREA   &lt;dbl&gt; -0.000008870, -0.000040900, -0.000010200, -0.000…
+$ Shape_Length          &lt;dbl&gt; 0.012323139, 0.037148006, 0.014686074, 0.0619722…
+$ Shape_Area            &lt;dbl&gt; -0.000008870, -0.000040900, -0.000010200, -0.000…</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

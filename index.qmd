@@ -1,0 +1,14 @@
+---
+title: "RCP"
+subtitle: "STA 199 Project"
+format: html
+editor: visual
+---
+
+**ABSTRACT**
+
+What differentiates a good NBA basketball player from a great one? Which qualities make it more or less likely a professional basketball player is named MVP? Our group sought to investigate the basketball statistics that are the best predictors of NBA MVP status from the 1997 to the 2022 NBA seasons. We hypothesized that the number of three-pointers per game is one of the best MVP predictors and that most of the best MVP predictors are related to offense. To answer this question, we performed a stepwise logistic regression to identify a combination of factors that best predicts MVP status. Those factors were the following: average points per game, field goals percentage, number of games started, 2-pointer percentage, average assists per game, average field goals per game, number of games played, and average blocks per game. Our resulting model had low sensitivity and high specificity, but we believe it helps to better understand the qualities valued in the selection of MVPs.
+
+\
+
+\

@@ -1,0 +1,13 @@
+---
+title: "About"
+format: html
+editor: visual
+---
+
+This project was developed by **RCP** For [STA 199: Introduction to Data Science](https://sta199-f23-2.github.io/) at Duke University. The team is comprised of the following team members.
+
+-   Team member 1: Diya Patel, co 2026, Biology Major
+-   Team member 2: Glory Olowojoba, co 2025, Biology Major
+-   Team member 3: Nia Robinson, co 2026, Data Science Major
+-   Team member 4: Elizabeth Romage, co 2026, Public Policy Major
+-   Team member 5: Ana Wilmer, co 2026, Public Policy Major
